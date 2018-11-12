@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "PersistantSubscriber-netcore21": {
+      "commandName": "Project",
+      "commandLineArgs": "1112"
+    }
+  }
+}

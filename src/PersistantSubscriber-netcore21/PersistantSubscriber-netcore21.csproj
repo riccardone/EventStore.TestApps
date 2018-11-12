@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <RootNamespace>PersistantSubscriber_netcore21</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="EventStore.ClientAPI">
+      <HintPath>..\dependencies\EventStore.ClientAPI\netstandard2.0\EventStore.ClientAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="protobuf-net">
+      <HintPath>..\dependencies\protobuf-net\2.4.0\lib\netstandard2.0\protobuf-net.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "EventSender-netcore21": {
+      "commandName": "Project",
+      "commandLineArgs": "1112"
+    }
+  }
+}
