@@ -1,2 +1,2 @@
 # EventStore.TestApps
-Apps for testing EventStore
+C# fw and Core Apps for testing EventStore
