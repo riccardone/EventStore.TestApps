@@ -1,19 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using EventStore.ClientAPI;
+using EventStore.ClientAPI.Embedded;
 using EventStore.ClientAPI.Projections;
 using EventStore.ClientAPI.SystemData;
+using EventStore.Common.Options;
 using Newtonsoft.Json;
 
-namespace ConsoleApp3
+namespace EventSenderEmbedded_fw471
 {
     class Program
     {
         static void Main(string[] args)
         {
+            var ciccio = EmbeddedVNodeBuilder.AsSingleNode().RunProjections(ProjectionType.All).Build();
+            ciccio.Start();
+
             var conn = EventStoreConnection.Create(GetConnectionBuilder(), new Uri($"tcp://localhost:1113"));
             var projectionsManager = new ProjectionsManager(new TestLogger(), new IPEndPoint(IPAddress.Loopback, 2113),
                 TimeSpan.FromSeconds(5));

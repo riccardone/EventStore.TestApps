@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventFlooder-fw461", "Event
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventReader-fw461", "EventReader-fw461\EventReader-fw461.csproj", "{C9C706EE-C308-4D2D-B8A6-69AC1AACB231}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventSenderEmbedded-fw471", "EventSenderEmbedded-fw471\EventSenderEmbedded-fw471.csproj", "{8DA881A9-5744-4E3F-B972-681E5E47B83D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{C9C706EE-C308-4D2D-B8A6-69AC1AACB231}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C9C706EE-C308-4D2D-B8A6-69AC1AACB231}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C9C706EE-C308-4D2D-B8A6-69AC1AACB231}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DA881A9-5744-4E3F-B972-681E5E47B83D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DA881A9-5744-4E3F-B972-681E5E47B83D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DA881A9-5744-4E3F-B972-681E5E47B83D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DA881A9-5744-4E3F-B972-681E5E47B83D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
