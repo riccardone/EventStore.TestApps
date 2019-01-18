@@ -9,7 +9,7 @@ namespace PersistantSubscriber_fw472
         static void Main(string[] args)
         {
             var subscriber = new EventStoreSubscriptionClient(
-                EventStoreConnection.Create(ConnectionSettings.Default, new Uri("http://localhost:1113"), "test"),
+                EventStoreConnection.Create(ConnectionSettings.Default, new Uri("tcp://localhost:1113"), "test"),
                 new UserCredentials("admin", "changeit"));
             subscriber.Connect();
             Console.WriteLine("Press enter to exit");

@@ -62,12 +62,7 @@ namespace EventFlooder_fw461
 
         private static ConnectionSettings GetConnectionBuilder()
         {
-            var settings = ConnectionSettings.Create()
-                .LimitReconnectionsTo(1)
-                .SetOperationTimeoutTo(TimeSpan.FromSeconds(30))
-                .LimitAttemptsForOperationTo(2);
-                //.KeepRetrying()
-                //.KeepReconnecting();
+            var settings = ConnectionSettings.Create();
             return settings;
         }
     }
