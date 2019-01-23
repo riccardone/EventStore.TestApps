@@ -14,7 +14,11 @@ namespace EventSender_fw461
     {
         static void Main(string[] args)
         {
-            var conn = EventStoreConnection.Create(GetConnectionBuilder(), new Uri($"tcp://localhost:1113"));
+            var es = "localhost:1113";
+            if (args.Length > 0)
+                es = args[0];
+            var uri = new Uri($"tcp://{es}");
+            var conn = EventStoreConnection.Create(GetConnectionBuilder(), uri, "es-test-app");
             var projectionsManager = new ProjectionsManager(new TestLogger(), new IPEndPoint(IPAddress.Loopback, 2113),
                 TimeSpan.FromSeconds(5));
             var projectionName = "ProjectionTest";
@@ -29,6 +33,7 @@ namespace EventSender_fw461
                 do
                 {
                     Console.Clear();
+                    Console.WriteLine($"Connected to {uri}");
                     Console.WriteLine($"Press P to create projection {projectionName} ({streamName})");
                     Console.WriteLine($"Press M to create Multi Streams projection {projectionMultistreamName} ({streamName}, {stream2Name})");
                     Console.WriteLine($"Press S to send 1000 events to stream {streamName}");

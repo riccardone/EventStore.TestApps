@@ -2,7 +2,7 @@
 using EventStore.ClientAPI;
 using EventStore.ClientAPI.SystemData;
 
-namespace ConsoleApp1
+namespace PersistantSubscriber_fw461
 {
     class Program
     {
