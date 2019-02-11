@@ -12,6 +12,8 @@ namespace EventSender_fw461
 {
     class Program
     {
+        const string StreamName = "domain-TestStream";
+
         static void Main(string[] args)
         {
             var es = "localhost:1113";
@@ -23,7 +25,7 @@ namespace EventSender_fw461
                 TimeSpan.FromSeconds(5));
             var projectionName = "ProjectionTest";
             var projectionMultistreamName = "ProjectionMultistreamTest";
-            var streamName = "domain-TestStream";
+            var streamName = StreamName;
             var stream2Name = "domainTest2Stream";
             try
             {

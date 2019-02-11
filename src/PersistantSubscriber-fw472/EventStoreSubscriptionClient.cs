@@ -8,7 +8,7 @@ namespace PersistantSubscriber_fw472
 {
     public class EventStoreSubscriptionClient
     {
-        private const string GroupName = "domain";
+        private const string GroupName = "test-subscribers";
         private const string StreamName = "$ce-domain";
 
         private readonly IEventStoreConnection _eventStoreConnection;
@@ -40,7 +40,7 @@ namespace PersistantSubscriber_fw472
             _eventStoreConnection.ConnectAsync().Wait();
             CreatePersistentSubscription(_eventStoreConnection);
             EventStorePersistentSubscriptionBase = _eventStoreConnection.ConnectToPersistentSubscription(StreamName,
-                GroupName, EventAppeared, SubscriptionDropped, _userCredentials, 10, false);
+                GroupName, EventAppeared, SubscriptionDropped, _userCredentials);
         }
 
         private void SubscriptionDropped(EventStorePersistentSubscriptionBase subscription, SubscriptionDropReason reason, Exception ex)

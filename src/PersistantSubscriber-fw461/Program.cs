@@ -6,17 +6,21 @@ namespace PersistantSubscriber_fw461
 {
     class Program
     {
+        const string StreamName = "domain-TestStream";
+        const string GroupName = "test-subscribers";
+
         static void Main(string[] args)
         {
-            var port = 1113;
-            if (args.Length > 0 && int.TryParse(args[0], out port))
-                Console.WriteLine($"Connecting to localhost on port {port}");
-            var conn = EventStoreConnection.Create(GetConnectionBuilder(), new Uri($"tcp://localhost:{port}"));
+            var es = "localhost:1113";
+            if (args.Length > 0)
+                es = args[0];
+            var uri = new Uri($"tcp://{es}");
+            var conn = EventStoreConnection.Create(GetConnectionBuilder(), uri);
             try
             {
                 conn.ConnectAsync().Wait();
                 CreatePersistentSubscription(conn);
-                conn.ConnectToPersistentSubscription("ciccio", "CiccioGroup",
+                conn.ConnectToPersistentSubscription(StreamName, GroupName,
                     (Action<EventStorePersistentSubscriptionBase, ResolvedEvent>)EventAppeared, SubscriptionDropped);
             }
             catch (Exception e)
@@ -32,7 +36,7 @@ namespace PersistantSubscriber_fw461
         {
             try
             {
-                conn.CreatePersistentSubscriptionAsync("ciccio", "CiccioGroup", PersistentSubscriptionSettings.Create().StartFromBeginning(),
+                conn.CreatePersistentSubscriptionAsync(StreamName, GroupName, PersistentSubscriptionSettings.Create().StartFromBeginning(),
                     new UserCredentials("admin", "changeit")).Wait();
             }
             catch (Exception e)
